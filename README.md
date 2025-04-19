@@ -1,1 +1,0 @@
-# equalize-panes-plugin
