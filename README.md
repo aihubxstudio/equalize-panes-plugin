@@ -1,94 +1,79 @@
-# Obsidian Sample Plugin
+# Obsidian Plugin: Equalize Panes
+👉 [日本語のREADMEはこちら](README.ja.md)
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+![badge](https://img.shields.io/badge/status-active-brightgreen)
 
-This project uses TypeScript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
+A simple but handy plugin for [Obsidian](https://obsidian.md) that allows users to **equalize the width of all open panes**. Ideal for focused, organized workflows.
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+---
 
-## First time developing plugins?
+## ✨ Features
 
-Quick starting guide for new plugin devs:
+- 🟰 **Equalize All Panes**: Set all open panes to the same width.
+- ♻️ **Restore Previous Widths**: Undo the equalization and restore each pane to its previous width.
+- ⚙️ **Status Bar Button**: One-click access from the Obsidian status bar.
+- 🌍 **Multilingual Support**: Automatically switches between English and Japanese based on your Obsidian UI language.
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+---
 
-## Releasing new releases
+## 📦 Installation
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
+### Manual Installation
+1. Download the latest release from [GitHub Releases](https://github.com/aihubxstudio/equalize-panes/releases).
+2. Extract the folder into your `.obsidian/plugins` directory.
+3. Reload Obsidian and enable the plugin in Settings > Community Plugins.
 
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+> ℹ️ **Note**: The plugin includes `main.js`, `manifest.json`, and an optional `styles.css`. Be sure all are present in the plugin folder.
 
-## Adding your plugin to the community plugin list
+---
 
-- Check the [plugin guidelines](https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines).
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+## 🚀 Usage
 
-## How to use
+You can access the commands via:
+- The Command Palette (`Ctrl+P` / `Cmd+P`)  
+- The Status Bar button (🟰)
 
-- Clone this repo.
-- Make sure your NodeJS is at least v16 (`node --version`).
-- `npm i` or `yarn` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
+### Available Commands:
 
-## Manually installing the plugin
+| Command Name                           | Description                                 |
+|----------------------------------------|---------------------------------------------|
+| `Equalize Pane Widths`                | Makes all panes equal width                |
+| `Restore Previous Pane Widths`        | Returns panes to their original width      |
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+---
 
-## Improve code quality with eslint (optional)
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
-- To use eslint with this project, make sure to install eslint from terminal:
-  - `npm install -g eslint`
-- To use eslint to analyze this project use this command:
-  - `eslint main.ts`
-  - eslint will then create a report with suggestions for code improvement by file and line number.
-- If your source code is in a folder, such as `src`, you can use eslint with this command to analyze all files in that folder:
-  - `eslint .\src\`
+## 🈺 Language Support
+This plugin supports the following languages:
 
-## Funding URL
+- English (default)
+- Japanese (based on Obsidian UI language setting)
 
-You can include funding URLs where people who use your plugin can financially support it.
+---
 
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
+## 🛠 Developer Notes
 
-```json
-{
-    "fundingUrl": "https://buymeacoffee.com"
-}
-```
+### How It Works:
+- Reads `workspace.rootSplit.children` to get visible panes.
+- Applies `element.style.flex = "0 0 XX%"` to each pane.
+- Stores previous widths in memory to allow restoring.
 
-If you have multiple URLs, you can also do:
+### Localization
+See the `i18n` object inside the code for the full translatable string list. Uses `localStorage.getItem("language")` to detect UI locale.
 
-```json
-{
-    "fundingUrl": {
-        "Buy Me a Coffee": "https://buymeacoffee.com",
-        "GitHub Sponsor": "https://github.com/sponsors",
-        "Patreon": "https://www.patreon.com/"
-    }
-}
-```
+---
 
-## API Documentation
+## 📄 License
+[MIT License](LICENSE)
 
-See https://github.com/obsidianmd/obsidian-api
+---
+
+## 💬 Feedback & Contribution
+
+Pull requests, feature requests, and bug reports are welcome via [GitHub Issues](https://github.com/aihubxstudio/equalize-panes/issues).
+
+If you find this plugin useful, give it a ⭐ on GitHub or share it with the Obsidian community!
+
+---
+
+Happy pane-managing! ✨
+
