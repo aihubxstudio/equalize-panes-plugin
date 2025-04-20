@@ -18,7 +18,7 @@
 ## 📦 インストール方法
 
 ### 手動インストール
-1. [GitHub リリースページ](https://github.com/aihubxstudio/equalize-panes/releases)から最新版をダウンロード。
+1. [GitHub リリースページ](https://github.com/aihubxstudio/equalize-panes-plugin/releases)から最新版をダウンロード。
 2. 解凍して `.obsidian/plugins` フォルダに配置。
 3. Obsidian の「設定 > コミュニティプラグイン」で有効化。
 

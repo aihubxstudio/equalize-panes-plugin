@@ -19,7 +19,7 @@ A simple but handy plugin for [Obsidian](https://obsidian.md) that allows users 
 ## 📦 Installation
 
 ### Manual Installation
-1. Download the latest release from [GitHub Releases](https://github.com/aihubxstudio/equalize-panes/releases).
+1. Download the latest release from [GitHub Releases](https://github.com/aihubxstudio/equalize-panes-plugin/releases).
 2. Extract the folder into your `.obsidian/plugins` directory.
 3. Reload Obsidian and enable the plugin in Settings > Community Plugins.
 
