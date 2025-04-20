@@ -1,11 +1,11 @@
 {
 	"id": "equalize-panes",
-	"name": "Equalize Pane Widths",
+	"name": "Equalize Pane",
 	"version": "1.0.0",
 	"minAppVersion": "1.0.0",
-	"description": "Easily equalize the width of all open panes in Obsidian.",
+	"description": "Easily equalize the width of all open panes.",
 	"author": "aihubxstudio",
-	"authorUrl": "https://github.com/aihubxstudio/equalize-panes-plugin",
-	"main": "main.js"
+	"main": "main.js",
+	"isDesktopOnly": true
   }
   
