@@ -1,6 +1,6 @@
 {
 	"id": "equalize-panes",
-	"name": "Equalize Pane",
+	"name": "Equalize Panes",
 	"version": "1.0.0",
 	"minAppVersion": "1.0.0",
 	"description": "Easily equalize the width of all open panes.",
