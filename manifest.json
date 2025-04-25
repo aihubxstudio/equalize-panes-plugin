@@ -6,6 +6,7 @@
 	"description": "Easily equalize the width of all open panes.",
 	"author": "aihubxstudio",
 	"main": "main.js",
+	"css": "styles.css",
 	"isDesktopOnly": true
   }
   
