@@ -23,6 +23,9 @@ tsconfig.json
 version-bump.mjs
 versions.json
 
+# compiled output
+main.js
+
 # Exclude sourcemaps
 *.map
 
